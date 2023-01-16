@@ -17,21 +17,17 @@ class Calculator(object):
         return self.operator[operation](x, y)
 
     def calculate(self, expression):
-        precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
+        precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
         operands = []
         operators = []
         number = ""
-        negative = False
         for char in expression:
-            if char == '-':
-                negative = True
-            elif char.isalnum():
+            if char.isalnum():
                 number += char
             else:
                 if number:
-                    operands.append(int(number) * (-1 if negative else 1))
+                    operands.append(int(number))
                     number = ""
-                    negative = False
                 while (operators and operators[-1] != '(' and precedence[char] <= precedence[operators[-1]]):
                     op2, op1 = operands.pop(), operands.pop()
                     operator = operators.pop()
@@ -39,7 +35,7 @@ class Calculator(object):
                     operands.append(result)
                 operators.append(char)
         if number:
-            operands.append(int(number) * (-1 if negative else 1))
+            operands.append(int(number))
         while operators:
             op2, op1 = operands.pop(), operands.pop()
             operator = operators.pop()
