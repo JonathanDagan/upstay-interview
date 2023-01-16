@@ -28,6 +28,6 @@ class TestMain(unittest.TestCase):
 
     def test_order(self):
         self.assertEqual(Calculator.calculate(self.calc, "1+1+1"), 3)
-        # self.assertEqual(Calculator.calculate(self.calc, "1+1-1"), 1)
+        self.assertEqual(Calculator.calculate(self.calc, "1+1-1"), 1)
         self.assertEqual(Calculator.calculate(self.calc, "1+1*1"), 2)
         self.assertEqual(Calculator.calculate(self.calc, "1+1/1"), 2)
