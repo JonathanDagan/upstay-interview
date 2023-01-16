@@ -1,4 +1,3 @@
-# test the add function
 from calculator import Calculator
 import unittest
 
