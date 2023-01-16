@@ -28,7 +28,8 @@ class Calculator(object):
                 if number:
                     operands.append(int(number))
                     number = ""
-                while (operators and operators[-1] != '(' and precedence[char] <= precedence[operators[-1]]):
+                while (operators and operators[-1] != '(' and precedence[char]
+                        <= precedence[operators[-1]]):
                     op2, op1 = operands.pop(), operands.pop()
                     operator = operators.pop()
                     result = self.perform_operation(operator, op1, op2)
