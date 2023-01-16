@@ -17,7 +17,7 @@ class Calculator(object):
         return self.operator[operation](x, y)
 
     def calculate(self, expression):
-        precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+        precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
         operands = []
         operators = []
         number = ""
